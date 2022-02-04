@@ -1,0 +1,73 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+    int data;
+    struct node*next;
+}*head;
+
+void create(int n);
+void traverse();
+
+
+int main()
+{
+    int n;
+    printf("Enter No of Nodes:");
+    scanf("%d",&n);
+    create(n);
+    printf("Display");
+    traverse();
+}
+
+void create(int n)
+{
+    struct node*newnode,*temp;
+    int data,i;
+    head=(struct node*)malloc(sizeof(struct node));
+    if(head==NULL)
+    {
+        printf("Empty");
+        exit(0);
+    }
+    printf("Enter element:");
+    scanf("%d",&data);
+    head->data=data;
+    head->next=NULL;
+    temp=head;
+    for(i=2;i<=n;i++)
+    {
+        newnode=(struct node*)malloc(sizeof(struct node));
+    if(head==NULL)
+    {
+        printf("Empty");
+        break;
+    }
+    printf("Enter element:");
+    scanf("%d",&data);
+    newnode->data=data;
+    newnode->next=NULL;
+    temp->next=newnode;
+    temp=newnode;
+    }
+}
+
+void traverse()
+{
+    struct node*temp;
+    if(head==NULL)
+    {
+        printf("Empty");
+        return;
+    }
+    temp=head;
+    while(temp!=NULL)
+    {
+        printf("\n%d\n",temp->data);
+        temp=temp->next;
+    }
+    
+    
+    
+}
